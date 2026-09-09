@@ -29,10 +29,10 @@ add Main/raw/event/scene/zev_knight_sonic_sp01.pac
 add Main/raw/event/scene/zev_knight_sonic_sp01_phase2.pac
 add Main/raw/event/scene/zev_knight_sonic_sp02_phase2.pac
 add Main/raw/event/scene/zev_parrymiss_riflebeast.pac
-add Main/raw/event/scene/zev_rfl_bitlaster01.pac
-add Main/raw/event/scene/zev_rfl_bitlaster02.pac
-add Main/raw/event/scene/zev_rfl_bitlaster03.pac
-add Main/raw/event/scene/zev_rfl_bitlasterX1.pac
+add Main/raw/event/scene/zev_rfl_bitlaser01.pac
+add Main/raw/event/scene/zev_rfl_bitlaser02.pac
+add Main/raw/event/scene/zev_rfl_bitlaser03.pac
+add Main/raw/event/scene/zev_rfl_bitlaserX1.pac
 add Main/raw/event/scene/zev_rfl_laser01.pac
 add Main/raw/event/scene/zev_rfl_laser02.pac
 add Main/raw/event/scene/zev_rfl_ls03.pac
