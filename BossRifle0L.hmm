@@ -1,0 +1,381 @@
+Patch "Supreme Address Edits" by "Hypernova"
+//
+	#lib "Memory"
+//
+{
+	WriteProtected<byte> (/* 0x1414624C0 */ ScanSignature ("bo4140", "xxxxxx"), System.Text.Encoding.UTF8.GetBytes("bo4141"));
+	WriteProtected<byte> (/* 0x14145D190 */ ScanSignature ("ev5030", "xxxxxx"), System.Text.Encoding.UTF8.GetBytes("ev503X"));
+	WriteProtected<byte> (/* 0x1414348B4 */ ScanSignature ("ev5040", "xxxxxx"), System.Text.Encoding.UTF8.GetBytes("ev504X"));
+	WriteProtected<byte> (/* 0x14143739C */ ScanSignature ("ev6030", "xxxxxx"), System.Text.Encoding.UTF8.GetBytes("ev603X"));
+	
+	// Shot2 = zev_rfl_sp02
+    if(ScanSignature("\xB0\xFD\x02\x03\x4C\x8B\xC0\x48\x8B\xCB\xE8\x3D\x84\xF9\xFF\x48\x8B\x4C\x24\x58\x48\x85\xC9\x74\x05\xE8\x9E\xDD", "xxxxxxxxxxxxxxxxxxxxxxxxxxxx") == 0)
+    { WriteProtected<byte> (0x14145E9C0, new byte[] { 0x00, 0x3E, 0x32, 0x40, 0x01 }); }
+    else 
+    { WriteProtected<byte> (0x14145E9F0, new byte[] { 0x00, 0x3E, 0x32, 0x40, 0x01 }); }
+
+	// Shot4 = zev_rfl_sp01
+	if(ScanSignature("\xB0\xFD\x02\x03\x4C\x8B\xC0\x48\x8B\xCB\xE8\x3D\x84\xF9\xFF\x48\x8B\x4C\x24\x58\x48\x85\xC9\x74\x05\xE8\x9E\xDD", "xxxxxxxxxxxxxxxxxxxxxxxxxxxx") == 0) 
+    { WriteProtected<byte> (0x1403239BB, new byte[] { 0x48, 0x8D, 0x15, 0x3E, 0xE5, 0x13, 0x01 }); }
+    else 
+    { WriteProtected<byte> (0x1403239BB, new byte[] { 0x48, 0x8D, 0x15, 0x6E, 0xE5, 0x13, 0x01 }); }
+}
+
+Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
+//
+	#lib "GameManager"
+	#lib "Reflection"
+	#lib "EventPlayer"
+	#lib "GameObject"
+	#lib "GameMode"
+	#lib "Lua"
+	#lib "Player"
+	
+	#import "Services"
+	#import "GOComponents"
+	#import "Graphics"
+	#import "Plugins"
+	
+	#include "Reflection" noemit
+	
+	static long ATSHOTB = 0;
+    static long ATSHOT3 = 0;
+	static long ATSHOT1 = 0;
+	static long ATSHOT2 = 0;
+	static long Abo4180 = 0;
+	static long AdCyAtk = 0;
+	static long AdCyPry = 0;
+//
+{
+	var evtPlayer = (EventPlayer.Data*)GameManager.GetService("EventPlayer");
+	if (evtPlayer == null)
+		return;
+	
+	var pkinematics = Player.Kinematics.Get();
+		
+	if (Lua.Call<int>("IsPlayingDiEvent", "ev5020") == 1)
+	{ 
+		Lua.Call("SetLayerEnabled", "w1r04_plan_miniboss", false);
+		Lua.Call("SetLayerEnabled", "w1r04_plan_common", false);
+	}
+	
+	if (Lua.Call<int>("IsPlayingDiEvent", "bo4111") == 1)
+	{ 
+		pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
+		pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+	}
+	
+	if (ATSHOTB == 0) { /* 0x141462108 */ ATSHOTB = ScanSignature ("zev_rfl_bitlaser02", "xxxxxxxxxxxxxxxxxx"); }
+	if (ATSHOT3 == 0) { /* 0x141461EF0 */ ATSHOT3 = ScanSignature ("zev_rfl_laser01", "xxxxxxxxxxxxxxx"); }
+	if (ATSHOT1 == 0) { /* 0x141461EE0 */ ATSHOT1 = ScanSignature ("zev_rfl_shoot02", "xxxxxxxxxxxxxxx"); }
+	if (ATSHOT2 == 0) { /* 0x141461F10 */ ATSHOT2 = ScanSignature ("zev_rfl_sp02", "xxxxxxxxxxxx"); }
+	if (Abo4180 == 0) { /* 0x1414624C8 */ Abo4180 = ScanSignature ("bo4180", "xxxxxx"); }
+	if (AdCyAtk == 0) { /* 0x14140F690 */ AdCyAtk = ScanSignature ("cyloop_counter", "xxxxxxxxxxxxxx"); }
+	if (AdCyPry == 0) { /* 0x14140F6A0 */ AdCyPry = ScanSignature ("cyloop_counter_parry", "xxxxxxxxxxxxxxxxxxxx"); }
+
+	bool RifleBattle = ((Player.State.GetStatePlugin("StatePluginBossBattle") != null) && (GameManager.GetGameObject("Rifle0") != null))
+	if (!RifleBattle) 
+		return;
+	{
+		string eventName = evtPlayer->GetCurrentEventName();
+		
+		bool ZevRifle = ((evtPlayer != null) && (GameManager.GetGameObject("Rifle0") != null))
+		if (!ZevRifle)
+			return;
+		{	
+			WriteProtected<byte>(AdCyAtk, System.Text.Encoding.UTF8.GetBytes("cyloop_counter"));
+			WriteProtected<byte>(AdCyPry, System.Text.Encoding.UTF8.GetBytes("cyloop_counter_parry"));
+			
+			if (GameMode.GetName() == "GameModeBattleRush")
+			{ WriteProtected<byte>(ATSHOT3, System.Text.Encoding.UTF8.GetBytes("zev_rfl_start00")); }
+			
+			if (evtPlayer == null)
+				return;
+			{		
+				bool isRifleBeast = (GameManager.GetGameObject("RifleBeast0") != null);
+				bool gameModeBattleRush = (GameMode.GetName() == "GameModeBattleRush");
+				
+				if ((Lua.Call<int>("IsPlayingDiEvent", "bo4110") == 1) || (Lua.Call<int>("IsPlayingDiEvent", "bo4111") == 1))
+				{ 
+					pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+					pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+				}
+				
+				if (Lua.Call<int>("IsPlayingDiEvent", "bo4141") == 1)
+				{ 		
+					pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+					pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+
+					var setupData = new EventPlayer.EventSetupData("bo4140");
+					evtPlayer->PlayEvent(ref setupData);
+				}
+		
+				switch (eventName)
+				{
+					case "bo4110":
+					case "bo4111":
+					case "bo4180":
+					case "bo4181":
+					case "zev_rfl_start00":
+						WriteProtected<byte>(ATSHOT3, System.Text.Encoding.UTF8.GetBytes("zev_rfl_laserX2"));
+						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_laser01"));
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_ls03"));
+						WriteProtected<byte>(Abo4180, System.Text.Encoding.UTF8.GetBytes("bo4180"));
+						if (!isRifleBeast)
+							WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserX1"));
+						else
+							WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaser01"));
+						break;
+					
+					case "zev_rfl_bitlaser01":
+						WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserA1"));
+						break;
+						
+					case "zev_rfl_bitlaserA1":
+					case "zev_rfl_bitlaserC1":
+					case "zev_rfl_bitlaserX1":
+						WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserB1"));
+						break;
+						
+					case "zev_rfl_bitlaserB1":
+						WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserC1"));
+						break;
+					
+					case "zev_rfl_laserX2":
+					case "zev_rfl_laserX1":
+						WriteProtected<byte>(ATSHOT3, System.Text.Encoding.UTF8.GetBytes("zev_rfl_laser02"));
+						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_laser01"));
+						break;
+					
+					case "zev_rfl_laser02":
+						WriteProtected<byte>(ATSHOT3, System.Text.Encoding.UTF8.GetBytes("zev_rfl_laserX1"));
+						break;			
+						
+					case "zev_rfl_laser01":
+						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_laserX2"));
+						break;			
+					
+					case "zev_rfl_ls03":
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_sp01"));
+						break;
+						
+					case "zev_rfl_sp01":
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_ls03"));
+						break;
+						
+					case "bo4140":	
+						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shoot02"));
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_spKX"));
+						WriteProtected<byte>(Abo4180, System.Text.Encoding.UTF8.GetBytes("bo4181"));
+						if (!isRifleBeast)
+						{
+							WriteProtected<byte>(ATSHOT3, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shoot01"));
+							WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaser02"));
+						}
+						else if (gameModeBattleRush)		
+						{ 
+							WriteProtected<byte>(ATSHOT3, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shoot01"));
+							WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserA2"));
+						}
+						else 
+						{ 
+							WriteProtected<byte>(ATSHOT3, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shootX1"));
+							WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaser02"));
+						}
+						break;
+						
+					case "zev_rfl_bitlaser02":
+					case "zev_rfl_bitlaserC2":
+						WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserA2"));
+						break;
+					
+					case "zev_rfl_bitlaserA2":
+						WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserC2"));
+						break;
+					
+					case "zev_rfl_spK0":
+					case "zev_rfl_wng1":
+					case "zev_rfl_wng2":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaser03"));
+						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shoot03"));
+						break;
+					
+					case "zev_rfl_spKX":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						if (!isRifleBeast) 
+							WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_lsX3"));
+						else
+							WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_spK1"));
+						break;
+						
+					case "zev_rfl_bitlaser03":
+						WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserA3"));
+						break;
+							
+					case "zev_rfl_bitlaserA3":
+						WriteProtected<byte>(ATSHOTB, System.Text.Encoding.UTF8.GetBytes("zev_rfl_bitlaserA2"));
+						break;
+				
+					case "zev_rfl_lsX3":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_sp02"));
+						break;
+
+					case "zev_rfl_spK1":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_spK2"));
+						break;
+
+					case "zev_rfl_sp02":
+					case "zev_rfl_spK2":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_sp03"));
+						break;
+					
+					case "zev_rfl_sp03":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_wing"));
+						break;
+
+					case "zev_rfl_wing":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_spKX"));
+						break;
+				
+					case "zev_rfl_shoot03":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shoot02"));
+						break;
+						
+					case "zev_rfl_shoot02":
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shootX2"));
+						break;
+						
+					case "zev_rfl_shootX2":	
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
+						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shoot03"));
+						break;
+				}
+			}
+		}
+	}
+}
+
+Code "Supreme moveset" by "Hypernova"
+//
+	#include "Reflection" noemit
+	#lib "Reflection"
+	#lib "EventPlayer"
+    #lib "HMM"
+	#lib "INI"
+	#import "Services"
+	
+	static long Adr4110 = 0;
+	static long Adr4160 = 0;
+//
+{
+	if (Adr4110 == 0) { /* 0x1414624B0 */ Adr4110 = ScanSignature ("bo4110", "xxxxxx"); }
+	if (Adr4160 == 0) { /* 0x1414624B8 */ Adr4160 = ScanSignature ("bo4160", "xxxxxx"); }
+	
+	bool isRifleBeast = (GameManager.GetGameObject("RifleBeast0") != null);
+	if (!isRifleBeast)
+	{
+		WriteProtected<byte>(Adr4110, System.Text.Encoding.UTF8.GetBytes("bo4110"));
+		WriteProtected<byte>(Adr4160, System.Text.Encoding.UTF8.GetBytes("bo4160"));
+	}
+	else
+	{
+		WriteProtected<byte>(Adr4110, System.Text.Encoding.UTF8.GetBytes("bo4111"));
+		WriteProtected<byte>(Adr4160, System.Text.Encoding.UTF8.GetBytes("bo4162"));
+	}
+}
+
+Code "Counter_Blow" by "Holoska"
+//
+	#import "Services"
+	#import "GOComponents"
+	#import "Graphics"
+	#import "Plugins"
+	#include "Reflection" noemit
+	#lib "GameManager"
+	#lib "GameObject"
+	#lib "Reflection"
+    #lib "HMM"
+	#lib "INI"
+	#lib "Player"
+	
+    static long AdRightHand = 0;	
+	static string[] rng_counter = new[]
+	{ /* sup */ 
+	"attack_counter_righthand_01", "", "attack_counter_righthand_02", "attack_counter_righthand_03", "attack_counter_head_01     ",
+	};	
+	
+	static long AdAtkCnSp02 = 0;
+	static string[] rng_atksp02 = new[]
+	{ /* sup */ 
+	"attack_counter_sp_02", "attack_counter_sp_03", "attack_counter_sp_04", 
+	};
+{
+	if (AdRightHand == 0) {/* 0x1414514C8 */ AdRightHand = ScanSignature ("attack_counter_righthand_01", "xxxxxxxxxxxxxxxxxxxxxxxxxxx");}
+	if (AdAtkCnSp02 == 0) {/* 0x141451370 */ AdAtkCnSp02 = ScanSignature ("attack_counter_sp_02", "xxxxxxxxxxxxxxxxxxxx");}
+	
+	if ((GameManager.GetGameObject("Rifle0") != null) && (Player.State.GetStatePlugin("StatePluginBossBattle") != null))
+	{ 
+		WriteProtected<byte>(AdRightHand, System.Text.Encoding.UTF8.GetBytes(rng_counter[new Random().Next(0, rng_counter.Length)])); 
+		WriteProtected<byte>(AdAtkCnSp02, System.Text.Encoding.UTF8.GetBytes(rng_atksp02[new Random().Next(0, rng_atksp02.Length)]));
+	}
+	else
+	{ 
+		WriteProtected<byte>(AdRightHand, System.Text.Encoding.UTF8.GetBytes("attack_counter_righthand_01"));
+	}
+}
+
+Patch "Supreme Wing Laser"
+//
+	#include "Reflection" noemit
+	#lib "Reflection"
+    #lib "HMM"
+	#lib "INI"
+	#lib "GameMode"
+    #import "Services"
+    static bool IsConfigInitialised = false;
+	static int RifleWing = 0;
+	static long ATSHOT4 = 0;
+//
+{
+    if (!IsConfigInitialised)
+    {
+		var mod = HMM.GetModByID("5664X0");
+		if (mod == null)
+			return;
+
+		string modConfigIniPath = System.IO.Path.Combine(mod.Path, "mod.ini");
+		var ini = INI.Read(modConfigIniPath);
+
+		RifleWing = INI.Parse<int>(ini["Main"]["BossRifleWing"], RifleWing);
+        IsConfigInitialised = true;
+			
+		if (ATSHOT4 == 0) { /* 0x141461F00 */ ATSHOT4 = ScanSignature ("zev_rfl_sp01   ", "xxxxxxxxxxxxxxx"); }
+		
+		if (RifleWing == 0)
+		{ WriteProtected<byte>(ATSHOT4, System.Text.Encoding.UTF8.GetBytes("zev_rfl_sp00   ")); }
+		
+		if (RifleWing == 1)
+		{ WriteProtected<byte>(ATSHOT4, System.Text.Encoding.UTF8.GetBytes("zev_rfl_wng1   ")); }
+
+		if (RifleWing == 2)
+		{ WriteProtected<byte>(ATSHOT4, System.Text.Encoding.UTF8.GetBytes("zev_rfl_wng2   ")); }
+	}
+}

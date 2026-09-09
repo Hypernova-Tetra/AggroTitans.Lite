@@ -1,0 +1,150 @@
+add Main/raw/boss/bosscommon.pac
+
+add Main/raw/event/scene/bo1xxx.pac
+add Main/raw/event/scene/bo2xxx.pac
+add Main/raw/event/scene/bo3xxx.pac
+add Main/raw/event/scene/bo4xxx.pac
+add Main/raw/event/scene/ev1770.pac
+add Main/raw/event/scene/ev5020.pac
+add Main/raw/event/scene/ev5030.pac
+add Main/raw/event/scene/ev5040.pac
+add Main/raw/event/scene/ev6030.pac
+add Main/raw/event/scene/ga122x.pac
+add Main/raw/event/scene/zev_dragon_finish_00.pac
+add Main/raw/event/scene/zev_dragon_finish_01.pac
+add Main/raw/event/scene/zev_dragon_sp_01.pac
+add Main/raw/event/scene/zev_dragon_sp_02.pac
+add Main/raw/event/scene/zev_dragon_sp_laser01.pac
+add Main/raw/event/scene/zev_dragon_sp_missile.pac
+add Main/raw/event/scene/zev_dragon_sp_psycho.pac
+add Main/raw/event/scene/zev_knight_atk_sp01.pac
+add Main/raw/event/scene/zev_knight_atk_sp02.pac
+add Main/raw/event/scene/zev_knight_atk_sp03.pac
+add Main/raw/event/scene/zev_knight_shieldride01.pac
+add Main/raw/event/scene/zev_knight_shieldride01_short.pac
+add Main/raw/event/scene/zev_knight_shieldride02.pac
+add Main/raw/event/scene/zev_knight_shieldride02_aerial.pac
+add Main/raw/event/scene/zev_knight_sonic_damageXX.pac
+add Main/raw/event/scene/zev_knight_sonic_sp01.pac
+add Main/raw/event/scene/zev_knight_sonic_sp01_phase2.pac
+add Main/raw/event/scene/zev_knight_sonic_sp02_phase2.pac
+add Main/raw/event/scene/zev_parrymiss_riflebeast.pac
+add Main/raw/event/scene/zev_rfl_bitlaster01.pac
+add Main/raw/event/scene/zev_rfl_bitlaster02.pac
+add Main/raw/event/scene/zev_rfl_bitlaster03.pac
+add Main/raw/event/scene/zev_rfl_bitlasterX1.pac
+add Main/raw/event/scene/zev_rfl_laser01.pac
+add Main/raw/event/scene/zev_rfl_laser02.pac
+add Main/raw/event/scene/zev_rfl_ls03.pac
+add Main/raw/event/scene/zev_rfl_shoot01.pac
+add Main/raw/event/scene/zev_rfl_shoot02.pac
+add Main/raw/event/scene/zev_rfl_shoot03.pac
+add Main/raw/event/scene/zev_rfl_sp00.pac
+add Main/raw/event/scene/zev_rfl_sp01.pac
+add Main/raw/event/scene/zev_rfl_sp02.pac
+add Main/raw/event/scene/zev_rfl_start00.pac
+add Main/raw/event/scene/zev_rfl_wing.pac
+add Main/raw/event/scene/zev_rfl_wng1.pac
+add Main/raw/event/scene/zev_rfl_wng2.pac
+add Main/raw/event/scene/zev_sp_riflebeast.pac
+add Main/raw/event/scene/zev_sp_riflebst01.pac
+add Main/raw/event/scene/zev_sp_riflebst02.pac
+add Main/raw/event/scene/zev_spider_dive_again.pac
+add Main/raw/event/scene/zev_spider_dive_start.pac
+add Main/raw/event/scene/zev_sonic_ring_max.pac
+
+add Main/raw/general/resident_general/se_rangers_sys.acb
+
+add Main/raw/misc/bossrush.pac
+
+add Main/raw/movie/bo2115.usm
+add Main/raw/movie/bo4140.usm
+add Main/raw/movie/bo4141.usm
+add Main/raw/movie/bo4142.usm
+add Main/raw/movie/bo4162.usm
+add Main/raw/movie/bo6090.usm
+add Main/raw/movie/bo6091.usm
+add Main/raw/movie/bo6290.usm
+add Main/raw/movie/bo6291.usm
+add Main/raw/movie/ev1770.usm
+add Main/raw/movie/ev1770_4k.usm
+add Main/raw/movie/ev5020.usm
+add Main/raw/movie/ev503X.usm
+add Main/raw/movie/ev504X.usm
+add Main/raw/movie/ev603X.usm
+add Main/raw/movie/zev_knight_sonic_sp01.usm
+add Main/raw/movie/zev_knight_sonic_sp01_phase2.usm
+add Main/raw/movie/zev_sonic_ring_max.usm
+
+add Main/raw/text/text_dlc_common_en.pac
+
+add Main/raw/sound/giantEX_sound/se_rangers_giant00.acb
+add Main/raw/sound/giantEX_sound/se_rangers_giant04_EX.acb
+add Main/raw/sound/extra_sound/se_rangers_upd_obj_new.acb
+add Main/raw/sound/giant01_sound/se_rangers_giant01.acb
+add Main/raw/sound/dragon01_sound/se_rangers_giant02.acb
+add Main/raw/sound/knight01_sound/se_rangers_giant03.acb
+add Main/raw/sound/rifle01_sound/se_rangers_giant04.acb
+add Main/raw/sound/the_end01_sound/se_rangers_boss_the_end.acb
+add Main/raw/sound/amy_sound/se_rangers_player_amy.acb
+add Main/raw/sound/tails_sound/se_rangers_player_tails.acb
+add Main/raw/sound/knuckles_sound/se_rangers_player_knuckles.acb
+add Main/raw/sound/bladecommon_sound/se_rangers_miniboss_blade.acb
+add Main/raw/sound/chargercommon_sound/se_rangers_miniboss_charger.acb
+add Main/raw/sound/spidercommon_sound/se_rangers_miniboss_spider.acb
+add Main/raw/sound/sumo01_sound/se_rangers_miniboss_sumo.acb
+add Main/raw/sound/tyrant01_sound/se_rangers_miniboss_tyrant.acb
+add Main/raw/sound/voice_rangers_update_event_en.acb
+add Main/raw/sound/voice_rangers_update_event_en.awb
+add Main/raw/sound/voice_rangers_update_event_de.acb
+add Main/raw/sound/voice_rangers_update_event_de.awb
+add Main/raw/sound/voice_rangers_update_event_es.acb
+add Main/raw/sound/voice_rangers_update_event_es.awb
+add Main/raw/sound/voice_rangers_update_event_fr.acb
+add Main/raw/sound/voice_rangers_update_event_fr.awb
+add Main/raw/sound/voice_rangers_update_event_it.acb
+add Main/raw/sound/voice_rangers_update_event_it.awb
+add Main/raw/sound/voice_rangers_update_event_ja.acb
+add Main/raw/sound/voice_rangers_update_event_ja.awb
+
+add MBoss_bo60_Silent/raw/event/scene/bo6xxx.pac
+add MBoss_bo60_Silent/raw/event/scene/zev_blow_rifleboss.pac
+
+add MBoss_bo62_Mono/raw/event/scene/bo6xxx.pac
+add MBoss_bo62_Mono/raw/event/scene/zev_blow_rifleboss.pac
+
+add MBoss_bo63_SilentEdit/raw/event/scene/bo6xxx.pac
+add MBoss_bo63_SilentEdit/raw/event/scene/zev_blow_rifleboss.pac
+
+add MBoss_bo64_MonoEdit/raw/event/scene/bo6xxx.pac
+add MBoss_bo64_MonoEdit/raw/event/scene/zev_blow_rifleboss.pac
+
+add MBoss_HP1/raw/boss/giant01.pac
+add MBoss_HP1/raw/boss/dragon01.pac
+add MBoss_HP1/raw/boss/knight01.pac
+add MBoss_HP1/raw/boss/rifle01.pac
+add MBoss_HP1/raw/boss/riflebeast.pac
+
+add MBoss_HP2/raw/boss/giant01.pac
+add MBoss_HP2/raw/boss/dragon01.pac
+add MBoss_HP2/raw/boss/knight01.pac
+add MBoss_HP2/raw/boss/rifle01.pac
+add MBoss_HP2/raw/boss/riflebeast.pac
+
+add MBoss_HP3/raw/boss/giant01.pac
+add MBoss_HP3/raw/boss/dragon01.pac
+add MBoss_HP3/raw/boss/knight01.pac
+add MBoss_HP3/raw/boss/rifle01.pac
+add MBoss_HP3/raw/boss/riflebeast.pac
+
+add AshEventLibrary.hmm
+add BossConfigLT.json
+add BossGiant0L.hmm
+add BossDragon0L.hmm
+add BossKnight0L.hmm
+add BossRifle0L.hmm
+add BossRifleBeast.hmm
+add BossRush.hmm
+add BossSonicComboTweaks.hmm
+add mod.ini
+add CombatDX.dll
