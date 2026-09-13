@@ -9,7 +9,7 @@ Patch "Supreme Address Edits" by "Hypernova"
 	WriteProtected<byte> (/* 0x14143739C */ ScanSignature ("ev6030", "xxxxxx"), System.Text.Encoding.UTF8.GetBytes("ev603X"));
 	
 	// Shot2 = zev_rfl_sp02
-    if(ScanSignature("\xB0\xFD\x02\x03\x4C\x8B\xC0\x48\x8B\xCB\xE8\x3D\x84\xF9\xFF\x48\x8B\x4C\x24\x58\x48\x85\xC9\x74\x05\xE8\x9E\xDD", "xxxxxxxxxxxxxxxxxxxxxxxxxxxx") == 0)
+    if(ScanSignature("\xB0\xFD\x02\x03\x4C\x8B\xC0\x48\x8B\xCB\xE8\x3D\x84\xF9\xFF\x48\x8B\x4C\x24\x58\x48\x85\xC9\x74\x05\xE8\x9E\xDD", "xxxxxxxxxxxxxxxxxxxxxxxxxxxx") == 0) 
     { WriteProtected<byte> (0x14145E9C0, new byte[] { 0x00, 0x3E, 0x32, 0x40, 0x01 }); }
     else 
     { WriteProtected<byte> (0x14145E9F0, new byte[] { 0x00, 0x3E, 0x32, 0x40, 0x01 }); }
@@ -59,12 +59,6 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 		Lua.Call("SetLayerEnabled", "w1r04_plan_common", false);
 	}
 	
-	if (Lua.Call<int>("IsPlayingDiEvent", "bo4111") == 1)
-	{ 
-		pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-		pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
-	}
-	
 	if (ATSHOTB == 0) { /* 0x141462108 */ ATSHOTB = ScanSignature ("zev_rfl_bitlaser02", "xxxxxxxxxxxxxxxxxx"); }
 	if (ATSHOT3 == 0) { /* 0x141461EF0 */ ATSHOT3 = ScanSignature ("zev_rfl_laser01", "xxxxxxxxxxxxxxx"); }
 	if (ATSHOT1 == 0) { /* 0x141461EE0 */ ATSHOT1 = ScanSignature ("zev_rfl_shoot02", "xxxxxxxxxxxxxxx"); }
@@ -95,7 +89,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 				bool isRifleBeast = (GameManager.GetGameObject("RifleBeast0") != null);
 				bool gameModeBattleRush = (GameMode.GetName() == "GameModeBattleRush");
 				
-				if ((Lua.Call<int>("IsPlayingDiEvent", "bo4110") == 1) || (Lua.Call<int>("IsPlayingDiEvent", "bo4111") == 1))
+				if ((Lua.Call<int>("IsPlayingDiEvent", "ev5020") == 1) || (Lua.Call<int>("IsPlayingDiEvent", "ev1770") == 1))
 				{ 
 					pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
 					pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
@@ -103,9 +97,9 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 				
 				if (Lua.Call<int>("IsPlayingDiEvent", "bo4141") == 1)
 				{ 		
-					pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
-					pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
-
+					pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
+					pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+					
 					var setupData = new EventPlayer.EventSetupData("bo4140");
 					evtPlayer->PlayEvent(ref setupData);
 				}
@@ -162,7 +156,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 					case "zev_rfl_sp01":
 						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_ls03"));
 						break;
-						
+					
 					case "bo4140":	
 						WriteProtected<byte>(ATSHOT1, System.Text.Encoding.UTF8.GetBytes("zev_rfl_shoot02"));
 						WriteProtected<byte>(ATSHOT2, System.Text.Encoding.UTF8.GetBytes("zev_rfl_spKX"));
@@ -319,7 +313,7 @@ Code "Counter_Blow" by "Holoska"
     static long AdRightHand = 0;	
 	static string[] rng_counter = new[]
 	{ /* sup */ 
-	"attack_counter_righthand_01", "", "attack_counter_righthand_02", "attack_counter_righthand_03", "attack_counter_head_01     ",
+	"attack_counter_righthand_01", "attack_counter_righthand_02", "attack_counter_righthand_03", "attack_counter_head_01     ",
 	};	
 	
 	static long AdAtkCnSp02 = 0;
