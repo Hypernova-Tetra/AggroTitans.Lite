@@ -97,7 +97,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 				
 				if (Lua.Call<int>("IsPlayingDiEvent", "bo4141") == 1)
 				{ 		
-					pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
+					pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
 					pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 					
 					var setupData = new EventPlayer.EventSetupData("bo4140");
