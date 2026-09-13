@@ -7,6 +7,7 @@
 #### **1.01 (Patch)**
 
 * Fixed a crash when loading up the Supreme fight.
+* Fixed an issue where Sonic got teleported to the wrong spot.
 
 
 
