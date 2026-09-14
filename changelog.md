@@ -1,6 +1,6 @@
-# **Aggro-Titans Lite Edition** - 2026.09.12
+# **Aggro-Titans Lite Edition** - 2026.09.14
 
-* Current 7z Compressed Mod File Size: "1.42GB"
+* Current 7z Compressed Mod File Size: "1.37GB"
 
 
 
@@ -8,6 +8,7 @@
 
 * Fixed a crash when loading up the Supreme fight.
 * Fixed an issue where Sonic got teleported to the wrong spot.
+* Fixed a visual issue where the yellow Chaos Emerald shows up during Wyvern's Missile QTE outside of the failure scene.
 
 
 

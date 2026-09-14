@@ -87,7 +87,7 @@ Code "Wyvern Dynamics" by "Hypernova"
 				WriteProtected<byte>(AddressFn01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_finish_00")); 
 				
 				var setupData = new EventPlayer.EventSetupData("zev_dragon_sp_missile2");
-				setupData.playFlags &= (EventPlayer.EventSetupData.PlayFlag)0xFFFFFFFB; //CantSkip//
+				setupData.playFlags &= (EventPlayer.EventSetupData.PlayFlag)0xFFFFFFFB;
 				evtPlayer->PlayEvent(ref setupData);
 			}
 			else if (gameModeBattleRush)
@@ -98,7 +98,7 @@ Code "Wyvern Dynamics" by "Hypernova"
 				WriteProtected<byte>(AddressFn01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_finish_01")); 
 					
 				var setupData = new EventPlayer.EventSetupData("zev_dragon_sp_psych1");
-				setupData.playFlags &= (EventPlayer.EventSetupData.PlayFlag)0xFFFFFFFB; //CantSkip//
+				setupData.playFlags &= (EventPlayer.EventSetupData.PlayFlag)0xFFFFFFFB;
 				evtPlayer->PlayEvent(ref setupData);
 			}
 			else
