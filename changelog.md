@@ -9,6 +9,7 @@
 * Fixed a crash when loading up the Supreme fight.
 * Fixed an issue where Sonic got teleported to the wrong spot.
 * Fixed a visual issue where the yellow Chaos Emerald shows up during Wyvern's Missile QTE outside of the failure scene.
+* Adjusted BossRush.pac Titan HP values.
 
 
 
