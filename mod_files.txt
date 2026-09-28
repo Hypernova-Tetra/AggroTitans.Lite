@@ -53,6 +53,9 @@ add Main/raw/event/scene/zev_spider_dive_again.pac
 add Main/raw/event/scene/zev_spider_dive_start.pac
 add Main/raw/event/scene/zev_sonic_ring_max.pac
 
+add Main/raw/gedit/w1r04_gedit.pac
+add Main/raw/gedit/w1r06_gedit.pac
+
 add Main/raw/general/resident_general/se_rangers_sys.acb
 
 add Main/raw/misc/bossrush.pac
@@ -60,7 +63,6 @@ add Main/raw/misc/bossrush.pac
 add Main/raw/movie/bo2115.usm
 add Main/raw/movie/bo4140.usm
 add Main/raw/movie/bo4141.usm
-add Main/raw/movie/bo4142.usm
 add Main/raw/movie/bo4162.usm
 add Main/raw/movie/bo6090.usm
 add Main/raw/movie/bo6091.usm
@@ -107,17 +109,17 @@ add Main/raw/sound/voice_rangers_update_event_it.awb
 add Main/raw/sound/voice_rangers_update_event_ja.acb
 add Main/raw/sound/voice_rangers_update_event_ja.awb
 
-add MBoss_bo60_Silent/raw/event/scene/bo6xxx.pac
-add MBoss_bo60_Silent/raw/event/scene/zev_blow_rifleboss.pac
+add MBoss_bo60_Silent_KR/raw/event/scene/bo6xxx.pac
+add MBoss_bo60_Silent_KR/raw/event/scene/zev_blow_rifleboss.pac
 
-add MBoss_bo62_Mono/raw/event/scene/bo6xxx.pac
-add MBoss_bo62_Mono/raw/event/scene/zev_blow_rifleboss.pac
+add MBoss_bo62_Mono_KR/raw/event/scene/bo6xxx.pac
+add MBoss_bo62_Mono_KR/raw/event/scene/zev_blow_rifleboss.pac
 
-add MBoss_bo63_SilentEdit/raw/event/scene/bo6xxx.pac
-add MBoss_bo63_SilentEdit/raw/event/scene/zev_blow_rifleboss.pac
+add MBoss_bo63_SilentEdit_KR/raw/event/scene/bo6xxx.pac
+add MBoss_bo63_SilentEdit_KR/raw/event/scene/zev_blow_rifleboss.pac
 
-add MBoss_bo64_MonoEdit/raw/event/scene/bo6xxx.pac
-add MBoss_bo64_MonoEdit/raw/event/scene/zev_blow_rifleboss.pac
+add MBoss_bo64_MonoEdit_KR/raw/event/scene/bo6xxx.pac
+add MBoss_bo64_MonoEdit_KR/raw/event/scene/zev_blow_rifleboss.pac
 
 add MBoss_HP1/raw/boss/giant01.pac
 add MBoss_HP1/raw/boss/dragon01.pac
@@ -138,13 +140,16 @@ add MBoss_HP3/raw/boss/rifle01.pac
 add MBoss_HP3/raw/boss/riflebeast.pac
 
 add AshEventLibrary.hmm
-add BossConfigLT.json
+add BossConfigKR.json
 add BossGiant0L.hmm
 add BossDragon0L.hmm
 add BossKnight0L.hmm
 add BossRifle0L.hmm
-add BossRifleBeast.hmm
+add BossRifleSpDmg+.hmm
+add BossRifleBL.hmm
 add BossRush.hmm
 add BossSonicComboTweaks.hmm
 add mod.ini
 add CombatDX.dll
+
+delete BossRifleBeast.hmm

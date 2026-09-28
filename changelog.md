@@ -1,6 +1,14 @@
-# **Aggro-Titans Lite Edition** - 2026.09.14
+# **Aggro-Titans Lite Edition** - 2026.09.27
 
 * Current 7z Compressed Mod File Size: "1.37GB"
+
+
+
+#### **1.02 (Patch)**
+
+* Tweaked how much damage Wyvern takes during events.
+* Code Tweaks/Optimization by Nowasu to make Frontiers run better. (Improvements have been made, but still can't hurt to keep testing.)
+* Supreme's unused Cinematic Grand Slam now does damage... under the hood. Visuals aren't applied, yet.
 
 
 
