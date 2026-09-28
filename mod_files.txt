@@ -109,17 +109,17 @@ add Main/raw/sound/voice_rangers_update_event_it.awb
 add Main/raw/sound/voice_rangers_update_event_ja.acb
 add Main/raw/sound/voice_rangers_update_event_ja.awb
 
-add MBoss_bo60_Silent_KR/raw/event/scene/bo6xxx.pac
-add MBoss_bo60_Silent_KR/raw/event/scene/zev_blow_rifleboss.pac
+add MBoss_bo60_Silent/raw/event/scene/bo6xxx.pac
+add MBoss_bo60_Silent/raw/event/scene/zev_blow_rifleboss.pac
 
-add MBoss_bo62_Mono_KR/raw/event/scene/bo6xxx.pac
-add MBoss_bo62_Mono_KR/raw/event/scene/zev_blow_rifleboss.pac
+add MBoss_bo62_Mono/raw/event/scene/bo6xxx.pac
+add MBoss_bo62_Mono/raw/event/scene/zev_blow_rifleboss.pac
 
-add MBoss_bo63_SilentEdit_KR/raw/event/scene/bo6xxx.pac
-add MBoss_bo63_SilentEdit_KR/raw/event/scene/zev_blow_rifleboss.pac
+add MBoss_bo63_SilentEdit/raw/event/scene/bo6xxx.pac
+add MBoss_bo63_SilentEdit/raw/event/scene/zev_blow_rifleboss.pac
 
-add MBoss_bo64_MonoEdit_KR/raw/event/scene/bo6xxx.pac
-add MBoss_bo64_MonoEdit_KR/raw/event/scene/zev_blow_rifleboss.pac
+add MBoss_bo64_MonoEdit/raw/event/scene/bo6xxx.pac
+add MBoss_bo64_MonoEdit/raw/event/scene/zev_blow_rifleboss.pac
 
 add MBoss_HP1/raw/boss/giant01.pac
 add MBoss_HP1/raw/boss/dragon01.pac
