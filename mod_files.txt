@@ -53,9 +53,6 @@ add Main/raw/event/scene/zev_spider_dive_again.pac
 add Main/raw/event/scene/zev_spider_dive_start.pac
 add Main/raw/event/scene/zev_sonic_ring_max.pac
 
-add Main/raw/gedit/w1r04_gedit.pac
-add Main/raw/gedit/w1r06_gedit.pac
-
 add Main/raw/general/resident_general/se_rangers_sys.acb
 
 add Main/raw/misc/bossrush.pac
@@ -140,7 +137,7 @@ add MBoss_HP3/raw/boss/rifle01.pac
 add MBoss_HP3/raw/boss/riflebeast.pac
 
 add AshEventLibrary.hmm
-add BossConfigKR.json
+add BossConfigLT.json
 add BossGiant0L.hmm
 add BossDragon0L.hmm
 add BossKnight0L.hmm
