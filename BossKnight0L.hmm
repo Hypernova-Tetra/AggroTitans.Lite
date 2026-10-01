@@ -109,7 +109,7 @@ Code "Knight Dynamics" by "Hypernova"
 			{ WriteProtected<byte>(SonicDamage, System.Text.Encoding.UTF8.GetBytes(HurtRNG[new Random().Next(0, HurtRNG.Length)])); }
 			
 			bool gameModeBattleRush = gameModeName == "GameModeBattleRush"
-			if (gameModeBossRush) // Master King
+			if (gameModeBossRush)
 			{
 				WriteProtected<byte>(AtkIntrrupt, System.Text.Encoding.UTF8.GetBytes(IntrRNG[new Random().Next(0, IntrRNG.Length)]));
 				WriteProtected<byte>(B1SwordRage, System.Text.Encoding.UTF8.GetBytes(RageRNG[new Random().Next(0, RageRNG.Length)]));
@@ -128,7 +128,7 @@ Code "Knight Dynamics" by "Hypernova"
 					}
 				};
 			}
-			else if (gameModeBattleRush) // Battle Rush
+			else if (gameModeBattleRush)
 			{
 				WriteProtected<byte>(AtkIntrrupt, System.Text.Encoding.UTF8.GetBytes("battle2_interrupt"));
 				WriteProtected<byte>(B1SwordRage, System.Text.Encoding.UTF8.GetBytes(RageRNG[new Random().Next(0, RageRNG.Length)]));
