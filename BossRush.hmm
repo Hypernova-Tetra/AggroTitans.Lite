@@ -1,4 +1,4 @@
-Code "Rings by Parry", by "Hypernova" and "thej01"
+Code "Rings from Parry in Wyvern"
 //
 	#include "Reflection" noemit
     #include "BlackboardStatus" noemit
@@ -74,7 +74,7 @@ Code "Rings by Parry", by "Hypernova" and "thej01"
 	}
 }
 
-Code "BossRush_Combat"
+Patch "BossRush_Time"
 //
 	#include "Reflection" noemit
 	#lib "Reflection"
@@ -82,62 +82,93 @@ Code "BossRush_Combat"
     #lib "HMM"
 	#lib "INI"
     #import "Services"
-
-    static bool IsConfigInitialised = false;
-	static int BossHP = 0;
-    static bool healthBool = false;
 //
 {
-    if (!IsConfigInitialised)
-    {
-		var mod = HMM.GetModByID("5664X0");
-
-		if (mod == null)
-			return;
-
-		string modConfigIniPath = System.IO.Path.Combine(mod.Path, "mod.ini");
-		var ini = INI.Read(modConfigIniPath);
-
-		BossHP = INI.Parse<int>(ini["Main"]["BossCombat"], BossHP);
-        IsConfigInitialised = true;
-
-        if (BossHP == 1)
-        { healthBool = true; }
-        else
-        { healthBool = false; }
-    }
-	
-	if (!healthBool)
-		return;
-
 	var BossRushParameterInfo = Reflection.GetDataInfo<BossRushParameter.Root>("bossrush");
-
 	if (BossRushParameterInfo.pData == null)
 		return;
-
-	RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[0].healthPoint, 75000);
-	RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[1].healthPoint, 80000);
-	RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[2].healthPoint, 83000);
-
-	RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[0].healthPoint, 67500);
-	RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[1].healthPoint, 70000);
-	RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[2].healthPoint, 73000);
-
-	RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[0].healthPoint, 52000);
-	RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[1].healthPoint, 66700);
-	RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[2].healthPoint, 70000);
-
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[0].healthPoint, 50000);
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[1].healthPoint, 60000);
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[2].healthPoint, 70000);
-
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[0].healthPoint, 45000);
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[1].healthPoint, 50000);
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[2].healthPoint, 52500);
 	
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[0].healthPoint, 37500);
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[1].healthPoint, 43300);
-	RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[2].healthPoint, 45000);
+	bool isChaosPolarity = HMM.GetMods().Where(x => x.Name == "Chaos Polarity").Count() > 0;
+	if (!isChaosPolarity)
+	{
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[0].healthPoint, 120000);
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[1].healthPoint, 125000);
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[2].healthPoint, 125750);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[0].healthPoint, 110000);
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[1].healthPoint, 112500);
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[2].healthPoint, 115000);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[0].healthPoint, 100000);
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[1].healthPoint, 105000);
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[2].healthPoint, 107500);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[0].healthPoint, 90000);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[1].healthPoint, 92500);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[2].healthPoint, 95000);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[0].healthPoint, 90000);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[1].healthPoint, 91200);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[2].healthPoint, 92400);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[0].healthPoint, 90000);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[1].healthPoint, 90000);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[2].healthPoint, 90000);
+	}
+	else
+	{
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[0].healthPoint, 62500);
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[1].healthPoint, 63300);
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[2].healthPoint, 66700);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[0].healthPoint, 60000);
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[1].healthPoint, 61200);
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[2].healthPoint, 62400);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[0].healthPoint, 50000);
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[1].healthPoint, 55000);
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[2].healthPoint, 57500);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[0].healthPoint, 41200);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[1].healthPoint, 42500);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[2].healthPoint, 45000);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[0].healthPoint, 33000);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[1].healthPoint, 36600);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[2].healthPoint, 39900);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[0].healthPoint, 30000);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[1].healthPoint, 30000);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[2].healthPoint, 30000);
+	}
+	
+	bool isBossRushCyber = HMM.GetMods().Where(x => x.Name == "AggroTitans_BossRushCyber").Count() > 0;
+	if (!isBossRushCyber)
+	{
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[0].hour, 4);
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[1].hour, 3);
+		RFL_SET_PARAM(BossRushParameterInfo, element[0].stages[2].hour, 2);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[0].hour, 6);
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[1].hour, 7);
+		RFL_SET_PARAM(BossRushParameterInfo, element[1].stages[2].hour, 8);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[0].hour, 10);
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[1].hour, 13);
+		RFL_SET_PARAM(BossRushParameterInfo, element[2].stages[2].hour, 16);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[0].hour, 8);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[1].hour, 9);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[0].stages[2].hour, 10);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[0].hour, 8);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[1].hour, 9);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[1].stages[2].hour, 10);
+		
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[0].hour, 8);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[1].hour, 9);
+		RFL_SET_PARAM(BossRushParameterInfo, elementEasy[2].stages[2].hour, 10);
+	}
 }
 
 Library "BossRushParameter"
