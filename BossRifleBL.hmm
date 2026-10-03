@@ -33,6 +33,11 @@ Code "Darkball QTE"
     static bool IsConfigInitialised = false;
     static long AddressParryMs1 = 0;
 	static long AddressGrandSp0 = 0;
+	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("zev_parrymiss_rifleboss");
+	static byte[] _gb1 = System.Text.Encoding.UTF8.GetBytes("zev_sp_riflebst01");
+	static byte[] _gb2 = System.Text.Encoding.UTF8.GetBytes("zev_parrymiss_riflebs02");
+	static byte[] _gb3 = System.Text.Encoding.UTF8.GetBytes("zev_sp_riflebst02");
+	static byte[] _gb4 = System.Text.Encoding.UTF8.GetBytes("zev_parrymiss_riflebs03");
 //
 {
 	var evtPlayer = (EventPlayer.Data*)GameManager.GetService("EventPlayer");
@@ -50,17 +55,17 @@ Code "Darkball QTE"
 		switch (eventName)
 		{
 			case "bo6020":
-				WriteProtected<byte>(AddressParryMs1, System.Text.Encoding.UTF8.GetBytes("zev_parrymiss_rifleboss"));
-				WriteProtected<byte>(AddressGrandSp0, System.Text.Encoding.UTF8.GetBytes("zev_sp_riflebst01"));
+				WriteProtected<byte>(AddressParryMs1, _gb0);
+				WriteProtected<byte>(AddressGrandSp0, _gb1);
 				break;
 			
 			case "bo6040":
-				WriteProtected<byte>(AddressParryMs1, System.Text.Encoding.UTF8.GetBytes("zev_parrymiss_riflebs02"));
-				WriteProtected<byte>(AddressGrandSp0, System.Text.Encoding.UTF8.GetBytes("zev_sp_riflebst02"));
+				WriteProtected<byte>(AddressParryMs1, _gb2);
+				WriteProtected<byte>(AddressGrandSp0, _gb3);
 				break;
 			
 			case "bo6065":
-				WriteProtected<byte>(AddressParryMs1, System.Text.Encoding.UTF8.GetBytes("zev_parrymiss_riflebs03"));
+				WriteProtected<byte>(AddressParryMs1, _gb4);
 				break;
 		}
 	}
@@ -197,6 +202,12 @@ Code "Unused Cinematic Grand Slam"
     AttackReplacers[7] = BossRifleBeastConfig.AtackType.AT_CROW_L;
 
     var RifleBeastInfo = Reflection.GetDataInfo<BossRifleBeastConfig.Root>("boss_rifle_beast");
+	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("zev_rfl_grndsp01");
+	static byte[] _gb1 = System.Text.Encoding.UTF8.GetBytes("special_atk_cyloop");
+	static byte[] _gb2 = System.Text.Encoding.UTF8.GetBytes("zev_rfl_grndsp02");
+	static byte[] _gb3 = System.Text.Encoding.UTF8.GetBytes("obj_event_ga3220");
+	static byte[] _gb4 = System.Text.Encoding.UTF8.GetBytes("special_atk_damage");
+	static byte[] _gb5 = System.Text.Encoding.UTF8.GetBytes("zev_rfl_grandsmash");
 //
 {
 	var evtPlayer = (EventPlayer.Data*)GameManager.GetService("EventPlayer");
@@ -245,21 +256,21 @@ Code "Unused Cinematic Grand Slam"
 			if (evtPlayer->IsEventPlaying("bo4111"))
 			{ 
 				Ga3220Phase = 1
-				WriteProtected<byte>(AdObjGa3220, System.Text.Encoding.UTF8.GetBytes("zev_rfl_grndsp01"));
-				WriteProtected<byte>(AddressSplDmg, System.Text.Encoding.UTF8.GetBytes("special_atk_cyloop"));
+				WriteProtected<byte>(AdObjGa3220, _gb0);
+				WriteProtected<byte>(AddressSplDmg, _gb1);
 			}
 			
 			if (evtPlayer->IsEventPlaying("bo4140"))
 			{
 				Ga3220Phase = 2
-				WriteProtected<byte>(AdObjGa3220, System.Text.Encoding.UTF8.GetBytes("zev_rfl_grndsp02"));
+				WriteProtected<byte>(AdObjGa3220, _gb2);
 			}
 			
 			if (evtPlayer->IsEventPlaying("bo4162"))
 			{ 
 				Ga3220Phase = 0
-				WriteProtected<byte>(AdObjGa3220, System.Text.Encoding.UTF8.GetBytes("obj_event_ga3220"));
-				WriteProtected<byte>(AddressSplDmg, System.Text.Encoding.UTF8.GetBytes("special_atk_damage"));
+				WriteProtected<byte>(AdObjGa3220, _gb3);
+				WriteProtected<byte>(AddressSplDmg, _gb4);
 			}
 			
 			int maxrings = pBlackboardItem->RingCapacity;
@@ -292,15 +303,15 @@ Code "Unused Cinematic Grand Slam"
 			bool eventGrandS1 = evtPlayer->IsEventPlaying("zev_rfl_grndsp01")
 			bool eventGrandS2 = evtPlayer->IsEventPlaying("zev_rfl_grndsp02")
 			if ((eventGrandS1) || (eventGrandS2))
-			{ WriteProtected<byte>(AddressSplDmg, System.Text.Encoding.UTF8.GetBytes("zev_rfl_grandsmash")); }
+			{ WriteProtected<byte>(AddressSplDmg, _gb5); }
 			else 
-			{ WriteProtected<byte>(AddressSplDmg, System.Text.Encoding.UTF8.GetBytes("special_atk_cyloop")); }
+			{ WriteProtected<byte>(AddressSplDmg, _gb1); }
 		}
 		else 
 		{ 
 			Ga3220Phase = 0
-			WriteProtected<byte>(AdObjGa3220, System.Text.Encoding.UTF8.GetBytes("obj_event_ga3220"));
-			WriteProtected<byte>(AddressSplDmg, System.Text.Encoding.UTF8.GetBytes("special_atk_damage"));
+			WriteProtected<byte>(AdObjGa3220, _gb3);
+			WriteProtected<byte>(AddressSplDmg, _gb4);
 		}
 	}
 

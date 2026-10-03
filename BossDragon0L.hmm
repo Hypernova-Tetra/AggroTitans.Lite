@@ -33,6 +33,24 @@ Code "Wyvern Dynamics" by "Hypernova"
 	static long Address2120 = 0;
 	static long Address2180 = 0;
 	
+	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("bo2120");
+	static byte[] _gb1 = System.Text.Encoding.UTF8.GetBytes("bo2121");
+	static byte[] _gb2 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_missile");
+	static byte[] _gb3 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_psycho");
+	static byte[] _gb4 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_01");
+	static byte[] _gb5 = System.Text.Encoding.UTF8.GetBytes("attack_counter01_r");
+	static byte[] _gb6 = System.Text.Encoding.UTF8.GetBytes("bo2180");
+	static byte[] _gb7 = System.Text.Encoding.UTF8.GetBytes("attack_counter03_r");
+	static byte[] _gb8 = System.Text.Encoding.UTF8.GetBytes("bo2181");
+	static byte[] _gb9 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_02");
+	static byte[] _gb10 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_laser00");
+	static byte[] _gb11 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_psych0");
+	static byte[] _gb12 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_finish_00");
+	static byte[] _gb13 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_X2");
+	static byte[] _gb14 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_laser01");
+	static byte[] _gb15 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_smash2");
+	static byte[] _gb16 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_finish_01");
+	static byte[] _gb17 = System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_F2");
 //
 {
 	var evtPlayer = (EventPlayer.Data*)GameManager.GetService("EventPlayer");
@@ -52,17 +70,17 @@ Code "Wyvern Dynamics" by "Hypernova"
 	if (Address2180 == 0) {/* 0x14144C99D */ Address2180 = ScanSignature ("bo2180", "xxxxxx");}
 	
 	if (!gameModeBossRush)
-	{ WriteProtected<byte>(Address2120, System.Text.Encoding.UTF8.GetBytes("bo2120")); }
+	{ WriteProtected<byte>(Address2120, _gb0); }
 	else
-	{ WriteProtected<byte>(Address2120, System.Text.Encoding.UTF8.GetBytes("bo2121")); }
+	{ WriteProtected<byte>(Address2120, _gb1); }
 		
 	if (evtPlayer->IsEventPlaying("bo2115"))
 	{
-		WriteProtected<byte>(AddressMsle, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_missile"));
-		WriteProtected<byte>(AddressPsyc, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_psycho"));
-		WriteProtected<byte>(AddressSp01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_01"));
-		WriteProtected<byte>(AdCntrLsr01, System.Text.Encoding.UTF8.GetBytes("attack_counter01_r"));
-		WriteProtected<byte>(Address2180, System.Text.Encoding.UTF8.GetBytes("bo2180"));
+		WriteProtected<byte>(AddressMsle, _gb2);
+		WriteProtected<byte>(AddressPsyc, _gb3);
+		WriteProtected<byte>(AddressSp01, _gb4);
+		WriteProtected<byte>(AdCntrLsr01, _gb5);
+		WriteProtected<byte>(Address2180, _gb6);
 	}
 		
 	bool DragonFight = ((GameManager.GetGameObject("Dragon0") != null) && (Player.State.GetStatePlugin("StatePluginBossBattle") != null))
@@ -77,15 +95,15 @@ Code "Wyvern Dynamics" by "Hypernova"
 		
 		if (evtPlayer->IsEventPlaying("bo2140"))
 		{
-			WriteProtected<byte>(AdCntrLsr01, System.Text.Encoding.UTF8.GetBytes("attack_counter03_r"));
-			WriteProtected<byte>(Address2180, System.Text.Encoding.UTF8.GetBytes("bo2181"));
+			WriteProtected<byte>(AdCntrLsr01, _gb7);
+			WriteProtected<byte>(Address2180, _gb8);
 				
 			if (gameModeBossRush)
 			{ 
-				WriteProtected<byte>(AddressSp01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_02"));
-				WriteProtected<byte>(AddressMsle, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_laser00"));
-				WriteProtected<byte>(AddressPsyc, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_psych0")); 
-				WriteProtected<byte>(AddressFn01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_finish_00")); 
+				WriteProtected<byte>(AddressSp01, _gb9);
+				WriteProtected<byte>(AddressMsle, _gb10);
+				WriteProtected<byte>(AddressPsyc, _gb11); 
+				WriteProtected<byte>(AddressFn01, _gb12); 
 				
 				var setupData = new EventPlayer.EventSetupData("zev_dragon_sp_missile2");
 				setupData.playFlags &= (EventPlayer.EventSetupData.PlayFlag)0xFFFFFFFB;
@@ -93,10 +111,10 @@ Code "Wyvern Dynamics" by "Hypernova"
 			}
 			else if (gameModeBattleRush)
 			{ 
-				WriteProtected<byte>(AddressSp01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_X2"));
-				WriteProtected<byte>(AddressMsle, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_laser01"));
-				WriteProtected<byte>(AddressPsyc, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_smash2"));
-				WriteProtected<byte>(AddressFn01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_finish_01")); 
+				WriteProtected<byte>(AddressSp01, _gb13);
+				WriteProtected<byte>(AddressMsle, _gb14);
+				WriteProtected<byte>(AddressPsyc, _gb15);
+				WriteProtected<byte>(AddressFn01, _gb16); 
 					
 				var setupData = new EventPlayer.EventSetupData("zev_dragon_sp_psych1");
 				setupData.playFlags &= (EventPlayer.EventSetupData.PlayFlag)0xFFFFFFFB;
@@ -104,14 +122,14 @@ Code "Wyvern Dynamics" by "Hypernova"
 			}
 			else
 			{ 
-				WriteProtected<byte>(AddressSp01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_F2"));
-				WriteProtected<byte>(AddressMsle, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_missile"));
-				WriteProtected<byte>(AddressPsyc, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_psycho"));
-				WriteProtected<byte>(AddressFn01, System.Text.Encoding.UTF8.GetBytes("zev_dragon_finish_01")); 
+				WriteProtected<byte>(AddressSp01, _gb17);
+				WriteProtected<byte>(AddressMsle, _gb2);
+				WriteProtected<byte>(AddressPsyc, _gb3);
+				WriteProtected<byte>(AddressFn01, _gb16); 
 			}
 		}
 		
 		if ((evtPlayer->IsEventPlaying("zev_dragon_sp_laser00")) || (evtPlayer->IsEventPlaying("zev_dragon_sp_laser01")))
-		{ WriteProtected<byte>(AddressMsle, System.Text.Encoding.UTF8.GetBytes("zev_dragon_sp_missile")); }
+		{ WriteProtected<byte>(AddressMsle, _gb2); }
 	}
 }
