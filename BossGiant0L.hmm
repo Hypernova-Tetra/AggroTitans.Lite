@@ -18,7 +18,7 @@ Code "Giganto_Combat_1"
 	static long Address1160 = 0;
 	static bool ModsChecked = false;
 	static bool isBSRActive = false;
-	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("bo1120");
+	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("bo1122");
 	static byte[] _gb1 = System.Text.Encoding.UTF8.GetBytes("bo1170");
 	static byte[] _gb2 = System.Text.Encoding.UTF8.GetBytes("bo1160");
 	static byte[] _gb3 = System.Text.Encoding.UTF8.GetBytes("bo1121");
@@ -29,11 +29,11 @@ Code "Giganto_Combat_1"
 	if (Address1160 == 0) { /* 0x141453520 */ Address1160 = ScanSignature ("bo1160", "xxxxxx"); }
 		
 	if (!ModsChecked) { isBSRActive = HMM.GetMods().Where(x => x.Name == "Boss Select Rematch").Count() > 0; ModsChecked = true; }
-	string gameModeName = GameMode.GetName();
-	bool gameModeBattleRush = gameModeName == "GameModeBattleRush"
-	bool gameModeBossRush = gameModeName == "GameModeBossRush"
+	string gmName = GameMode.GetName();
+	bool isBattleRush = gmName == "GameModeBattleRush";
+	bool isBossRush   = gmName == "GameModeBossRush";
 	
-	if (gameModeBattleRush)
+	if (isBattleRush)
 	{ 
 		WriteProtected<byte>(Address1120, _gb0);
 	
@@ -42,7 +42,7 @@ Code "Giganto_Combat_1"
 		else
 		{ WriteProtected<byte>(Address1160, _gb2); }
 	}
-    else if (gameModeBossRush)
+    else if (isBossRush)
 	{ 
 		WriteProtected<byte>(Address1120, _gb3);
 		WriteProtected<byte>(Address1160, _gb4); 
@@ -74,7 +74,7 @@ Code "Giganto Dynamics" by "Hypernova"
 	static long Address1120 = 0;
 	static long Address1160 = 0;
 	static long Address1180 = 0;
-	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("bo1122");
+	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("bo1120");
 	static byte[] _gb1 = System.Text.Encoding.UTF8.GetBytes("bo1151");
 	static byte[] _gb2 = System.Text.Encoding.UTF8.GetBytes("attack_howl");
 	static byte[] _gb3 = System.Text.Encoding.UTF8.GetBytes("cyloop_counter");

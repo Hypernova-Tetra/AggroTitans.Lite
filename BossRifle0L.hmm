@@ -117,15 +117,15 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 			WriteProtected<byte>(AdCyAtk, _gb0);
 			WriteProtected<byte>(AdCyPry, _gb1);
 			
-			string gameModeName = GameMode.GetName();
-			if (gameModeName == "GameModeBattleRush")
+			string gmName = GameMode.GetName();
+			bool isBattleRush = gmName == "GameModeBattleRush";
+			if (isBattleRush)
 			{ WriteProtected<byte>(ATSHOT3, _gb2); }
 			
 			if (evtPlayer == null)
 				return;
 			{		
 				bool isRifleBeast = (GameManager.GetGameObject("RifleBeast0") != null);
-				bool gameModeBattleRush = (gameModeName == "GameModeBattleRush");
 				
 				if ((Lua.Call<int>("IsPlayingDiEvent", "bo4110") == 1) || (Lua.Call<int>("IsPlayingDiEvent", "ev1770") == 1))
 				{ 
@@ -204,7 +204,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 							WriteProtected<byte>(ATSHOT3, _gb18);
 							WriteProtected<byte>(ATSHOTB, _gb19);
 						}
-						else if (gameModeBattleRush)		
+						else if (isBattleRush)		
 						{ 
 							WriteProtected<byte>(ATSHOT3, _gb18);
 							WriteProtected<byte>(ATSHOTB, _gb20);

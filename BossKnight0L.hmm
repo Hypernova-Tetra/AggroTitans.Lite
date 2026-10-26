@@ -69,9 +69,9 @@ Code "Knight Dynamics" by "Hypernova"
 	{
 		if (Address3120 == 0) {/* 0x14145C100 */ Address3120 = ScanSignature ("bo3120", "xxxxxx");}
 		
-		string gameModeName = GameMode.GetName();
-		bool gameModeBossRush = gameModeName == "GameModeBossRush"
-		if (!gameModeBossRush)
+		string gmName = GameMode.GetName();
+		bool isBossRush   = gmName == "GameModeBossRush";
+		if (!isBossRush)
 		{ WriteProtected<byte>(Address3120, _gb0);}
 		else
 		{ WriteProtected<byte>(Address3120, _gb1);}
@@ -111,20 +111,21 @@ Code "Knight Dynamics" by "Hypernova"
 				pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 1.0f, 0.0f, 0.0f);
 			}
 			
-			if (AtkIntrrupt == 0) {/* 0x141459958 */ AtkIntrrupt = ScanSignature ("battle1_interrupt", "xxxxxxxxxxxxxxxxx");} // Phase 1 Counter Attack after Shieldride 
-			if (B1SwordRage == 0) {/* 0x141459870 */ B1SwordRage = ScanSignature ("battle1_sword_rage", "xxxxxxxxxxxxxxxxxx");} // Sword Counter Phase 2
-			if (B1SwordSide == 0) {/* 0x1414598A0 */ B1SwordSide = ScanSignature ("battle1_sword_side", "xxxxxxxxxxxxxxxxxx");} // Sword Attack Side Phase 1
-			if (B1SwordVert == 0) {/* 0x141459888 */ B1SwordVert = ScanSignature ("battle1_sword_vert", "xxxxxxxxxxxxxxxxxx");} // Sword Attack Vertical Phase 1
-			if (F2SwordLast == 0) {/* 0x14145C278 */ F2SwordLast = ScanSignature ("zev_knight_atk_sp01", "xxxxxxxxxxxxxxxxxxx");} // Sword Final QTE
-			if (AddressSP02 == 0) {/* 0x14145C1F8 */ AddressSP02 = ScanSignature ("zev_knight_sonic_sp01_phase2", "xxxxxxxxxxxxxxxxxxxxxxxxxxxx");} // Grand Slam Phase 2
+			if (AtkIntrrupt == 0) {/* 0x141459958 */ AtkIntrrupt = ScanSignature ("battle1_interrupt", "xxxxxxxxxxxxxxxxx");}
+			if (B1SwordRage == 0) {/* 0x141459870 */ B1SwordRage = ScanSignature ("battle1_sword_rage", "xxxxxxxxxxxxxxxxxx");}
+			if (B1SwordSide == 0) {/* 0x1414598A0 */ B1SwordSide = ScanSignature ("battle1_sword_side", "xxxxxxxxxxxxxxxxxx");}
+			if (B1SwordVert == 0) {/* 0x141459888 */ B1SwordVert = ScanSignature ("battle1_sword_vert", "xxxxxxxxxxxxxxxxxx");}
+			if (F2SwordLast == 0) {/* 0x14145C278 */ F2SwordLast = ScanSignature ("zev_knight_atk_sp01", "xxxxxxxxxxxxxxxxxxx");}
+			if (AddressSP02 == 0) {/* 0x14145C1F8 */ AddressSP02 = ScanSignature ("zev_knight_sonic_sp01_phase2", "xxxxxxxxxxxxxxxxxxxxxxxxxxxx");}
 			
-			if (SonicDamage == 0) // Sonic Damage Event
+			if (SonicDamage == 0)
 			{/* 0x141455908 */ SonicDamage = ScanSignature ("zev_knight_sonic_damage01", "xxxxxxxxxxxxxxxxxxxxxxxxx");}
 			else
 			{ WriteProtected<byte>(SonicDamage, System.Text.Encoding.UTF8.GetBytes(HurtRNG[new Random().Next(0, HurtRNG.Length)])); }
 			
-			bool gameModeBattleRush = gameModeName == "GameModeBattleRush"
-			if (gameModeBossRush) // Master King
+			bool isBattleRush = gmName == "GameModeBattleRush";
+			
+			if (isBossRush)
 			{
 				WriteProtected<byte>(AtkIntrrupt, System.Text.Encoding.UTF8.GetBytes(IntrRNG[new Random().Next(0, IntrRNG.Length)]));
 				WriteProtected<byte>(B1SwordRage, System.Text.Encoding.UTF8.GetBytes(RageRNG[new Random().Next(0, RageRNG.Length)]));
@@ -143,7 +144,7 @@ Code "Knight Dynamics" by "Hypernova"
 					}
 				};
 			}
-			else if (gameModeBattleRush) // Battle Rush
+			else if (isBattleRush)
 			{
 				WriteProtected<byte>(AtkIntrrupt, _gb6);
 				WriteProtected<byte>(B1SwordRage, System.Text.Encoding.UTF8.GetBytes(RageRNG[new Random().Next(0, RageRNG.Length)]));
@@ -158,7 +159,7 @@ Code "Knight Dynamics" by "Hypernova"
 					evtPlayer->PlayEvent(ref setupData);
 				}
 			}
-			else // Base Story
+			else
 			{	
 				WriteProtected<byte>(AtkIntrrupt, _gb11);
 				WriteProtected<byte>(B1SwordRage, System.Text.Encoding.UTF8.GetBytes(RageRNG[new Random().Next(0, RageRNG.Length)]));

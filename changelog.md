@@ -4,6 +4,19 @@
 
 
 
+#### **β.01 - 2026.10.26**
+
+* Re-Merged Add-on Sound Options in to the mod: Only "Original" and "Sound Edit" are available.
+* Adjusted script files.
+* Adjusted "SonicComboTweaks" to fix some actions not activating, and removed repeated lines of code.
+* Fixed a small detail in Wyvern's Psycho QTE in where random pillars can be floating from other Wyvern animations in the QTE.
+* A small adjustment of events between Gignato's SS transformation in Base Story and Battle Rush. Swapping what events play between them.
+* A small adjustment of events in Wyvern's Boss Fight in Battle Rush: Removed a QTE after the Phase 2 scene. Moved the Laser QTE in Battle Rush to Master King.
+* A small adjustment of events in Wyvern's Boss Fight in Battle Rush: A variant of the Psycho QTE plays where it restores a cut segment of Sonic and Wyvern clashing in a wide camera shot.
+* A small adjustment of events in Wyvern's Boss Fight in Master King: Randomizes Laser QTE between 2 distinct animations.
+
+
+
 #### **β.00 - 2026.10.04**
 
 * Bumped version number for Open Playtest Release.

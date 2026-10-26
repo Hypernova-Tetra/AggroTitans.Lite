@@ -41,6 +41,15 @@
 				"DefaultValue":"MBoss_HP2"
 				},
 				{
+				"Name":"IncludeDir3",
+				"DisplayName":"Titan Audio",
+				"Description":["Sound Effect settings."],
+				"Type":"TitanAudio",
+				"MinValue":null,
+				"MaxValue":null,
+				"DefaultValue":"MBoss_Audio_Edit"
+				},
+				{
 				"Name":"BossRifleWing",
 				"DisplayName":"Secondary WingLaser QTE",
 				"Description":["An alternate event for Supreme's Wing Laser QTE will play at low health."],
@@ -131,6 +140,19 @@
 			"DisplayName":"Faster",
 			"Value":"1",
 			"Description":["Changes the animation speed of Loop Kick and Wild Rush so that the attacks go by a bit faster."]
+			}
+		],
+		"TitanAudio":
+		[
+			{
+			"DisplayName":"Original Audio",
+			"Value":"MBoss_Audio_0rgn",
+			"Description":["Original vanilla audio from release."]
+			},
+			{
+			"DisplayName":"Sound Edit",
+			"Value":"MBoss_Audio_Edit",
+			"Description":["Sound Edits prior to Sound Overhaul contribution."]
 			}
 		],
 		"RifleWing":
