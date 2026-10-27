@@ -4,7 +4,15 @@
 
 
 
-#### **β.01 - 2026.10.26**
+#### **β.01** 
+
+#### **- 2026.10.27**
+
+* Wyvern fixes
+
+
+
+#### **- 2026.10.26**
 
 * Re-Merged Add-on Sound Options in to the mod: Only "Original" and "Sound Edit" are available.
 * Adjusted script files.

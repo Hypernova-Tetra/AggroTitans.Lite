@@ -135,8 +135,5 @@ Code "Wyvern Dynamics" by "Hypernova"
 				WriteProtected<byte>(AddressFn01, _gb16); 
 			}
 		}
-		
-		if ((evtPlayer->IsEventPlaying("zev_dragon_sp_laser00")) || (evtPlayer->IsEventPlaying("zev_dragon_sp_laser01")))
-		{ WriteProtected<byte>(AddressMsle, _gb2); }
 	}
 }
