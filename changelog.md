@@ -1,6 +1,6 @@
 # **Aggravated Bosses (Lite)** Open Playtest
 
-* Current 7z Compressed Mod File Size: "1.37GB"
+* Current 7z Compressed Mod File Size: "1.62GB"
 
 
 
