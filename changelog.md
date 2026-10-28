@@ -10,6 +10,7 @@
 
 * Wyvern fixes
 * Fixed missing DvElementAura params in Wyvern's Psycho QTE (and variants in this mod) that simply did not exist since the game's launch.
+* Fixed a small issue with Supreme where Battle Rush would play the wrong events in Phase 1.
 
 
 
