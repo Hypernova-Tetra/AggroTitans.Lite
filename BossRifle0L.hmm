@@ -234,15 +234,15 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 					case "zev_rfl_spK0":
 					case "zev_rfl_wng1":
 					case "zev_rfl_wng2":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOTB, _gb23);
 						WriteProtected<byte>(ATSHOT1, _gb24);
 						break;
 					
 					case "zev_rfl_spKX":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						if (!isRifleBeast) 
 							WriteProtected<byte>(ATSHOT2, _gb25);
 						else
@@ -258,51 +258,51 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 						break;
 				
 					case "zev_rfl_lsX3":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT2, _gb28);
 						break;
 
 					case "zev_rfl_spK1":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT2, _gb29);
 						break;
 
 					case "zev_rfl_sp02":
 					case "zev_rfl_spK2":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT2, _gb30);
 						break;
 					
 					case "zev_rfl_sp03":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT2, _gb31);
 						break;
 
 					case "zev_rfl_wing":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT2, _gb16);
 						break;
 				
 					case "zev_rfl_shoot03":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT1, _gb15);
 						break;
 						
 					case "zev_rfl_shoot02":
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT1, _gb32);
 						break;
 						
 					case "zev_rfl_shootX2":	
-						pkinematics->Position = new System.Numerics.Vector3(-19.3f, 316.8f, -60.5f);
-						pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
+						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
+				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT1, _gb24);
 						break;
 				}
