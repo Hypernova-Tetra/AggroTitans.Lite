@@ -183,7 +183,7 @@
 			{
 			"DisplayName":"Unused Cinematic Event",
 			"Value":"1",
-			"Description":["**Experimental** Restores the unused cutscene for Supreme's Grand Slam. Known Issues- 1: Does not inflict damage due to missing parameters in the rfl file. 2: After activation, the game may crash when trying to parry Riflebeast's arms in Phase 2."]
+			"Description":["**Experimental** Current issues: Will cause the Riflebeast Tackle Attack to crash when parried, a workaround is implemented to where the attack will be disabled."]
 			}
 		],
 		"SupremeM":
