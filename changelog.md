@@ -4,13 +4,15 @@
 
 
 
-#### **β.01**
+#### **β.02**
 
 #### **- 2026.10.28**
 
 * Fixed a small issue with Supreme where Battle Rush would play the wrong events in Phase 1.
 
 
+
+#### **β.01**
 
 #### **- 2026.10.27**
 
