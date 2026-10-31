@@ -182,8 +182,7 @@ Code "Unused Cinematic Grand Slam"
 	static long AddressSplDmg = 0;
 	static long AdObjGa3220 = 0;
 	static long Ga3220Phase = 0;
-
-    static bool healthBool = false;
+	
 	static bool smashBool = false;
 	static bool initialized = false;
 	static bool IsConfigInitialised = false;
@@ -235,12 +234,6 @@ Code "Unused Cinematic Grand Slam"
         {smashBool = true;}
         else
         {smashBool = false;}
-		
-		BossHP = INI.Parse<int>(ini["Main"]["BossCombat"], BossHP);
-		if (BossHP == 1)
-        {healthBool = true;}
-        else
-        {healthBool = false;}
     }
 	
 	bool isGiantBoss04 = (Player.State.GetStatePlugin("StatePluginBossBattle") != null) && (GameManager.GetGameObject("Rifle0") != null)
@@ -312,28 +305,6 @@ Code "Unused Cinematic Grand Slam"
 			Ga3220Phase = 0
 			WriteProtected<byte>(AdObjGa3220, _gb3);
 			WriteProtected<byte>(AddressSplDmg, _gb4);
-		}
-	}
-
-	if (!healthBool && !smashBool)
-		return;
-	{
-		if (!isGiantBoss04)
-			return;
-		{
-			int maxrings = pBlackboardItem->RingCapacity;
-			int rings = pBlackboardItem->RingCount;
-			
-			if ((XInput.IsButtonDown(XInput.Buttons.Y) && XInput.IsButtonDown(XInput.Buttons.B)) && (Player.State.GetCurrentStateID<Sonic.StateID>() == Sonic.StateID.StateSmashSS))
-			{
-				pBlackboardItem->RingCount += 10;
-				
-				if(rings > maxrings)
-				pBlackboardItem->RingCount = maxrings;
-				
-				if(rings < 0)
-				pBlackboardItem->RingCount = 0;
-			}
 		}
 	}
 	
