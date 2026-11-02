@@ -46,7 +46,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
     static long ATSHOT3 = 0;
 	static long ATSHOT1 = 0;
 	static long ATSHOT2 = 0;
-	static long Abo4180 = 0;
+	static long AT0RING = 0;
 	static long AdCyAtk = 0;
 	static long AdCyPry = 0;
 	static long AdSp01R = 0;
@@ -85,6 +85,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 	static byte[] _gb32 = System.Text.Encoding.UTF8.GetBytes("zev_rfl_shootX2");
 	static byte[] _gb33 = System.Text.Encoding.UTF8.GetBytes("attack_counter_sp_01_release");
 	static byte[] _gb34 = System.Text.Encoding.UTF8.GetBytes("attack_counter_sp_01_releas2");
+	static byte[] _gb35 = System.Text.Encoding.UTF8.GetBytes("bo4182");
 //
 {
 	var evtPlayer = (EventPlayer.Data*)GameManager.GetService("EventPlayer");
@@ -109,7 +110,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 	if (ATSHOT3 == 0) { /* 0x141461EF0 */ ATSHOT3 = ScanSignature ("zev_rfl_laser01", "xxxxxxxxxxxxxxx"); }
 	if (ATSHOT1 == 0) { /* 0x141461EE0 */ ATSHOT1 = ScanSignature ("zev_rfl_shoot02", "xxxxxxxxxxxxxxx"); }
 	if (ATSHOT2 == 0) { /* 0x141461F10 */ ATSHOT2 = ScanSignature ("zev_rfl_sp02", "xxxxxxxxxxxx"); }
-	if (Abo4180 == 0) { /* 0x1414624C8 */ Abo4180 = ScanSignature ("bo4180", "xxxxxx"); }
+	if (AT0RING == 0) { /* 0x1414624C8 */ AT0RING = ScanSignature ("bo4180", "xxxxxx"); }
 	if (AdCyAtk == 0) { /* 0x14140F690 */ AdCyAtk = ScanSignature ("cyloop_counter", "xxxxxxxxxxxxxx"); }
 	if (AdCyPry == 0) { /* 0x14140F6A0 */ AdCyPry = ScanSignature ("cyloop_counter_parry", "xxxxxxxxxxxxxxxxxxxx"); }
 	if (AdSp01R == 0) { /* 0x14140F488 */ AdSp01R = ScanSignature ("attack_counter_sp_01_release", "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"); }
@@ -156,7 +157,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 						WriteProtected<byte>(ATSHOT3, _gb3);
 						WriteProtected<byte>(ATSHOT1, _gb4);
 						WriteProtected<byte>(ATSHOT2, _gb5);
-						WriteProtected<byte>(Abo4180, _gb6);
+						WriteProtected<byte>(AT0RING, _gb6);
 						WriteProtected<byte>(AdSp01R, _gb33);
 						if (!isRifleBeast)
 							WriteProtected<byte>(ATSHOTB, _gb7);
@@ -203,7 +204,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 					case "bo4140":	
 						WriteProtected<byte>(ATSHOT1, _gb15);
 						WriteProtected<byte>(ATSHOT2, _gb16);
-						WriteProtected<byte>(Abo4180, _gb17);
+						WriteProtected<byte>(AT0RING, _gb17);
 						WriteProtected<byte>(AdSp01R, _gb34);
 						if (!isRifleBeast)
 						{
@@ -304,6 +305,10 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 						pkinematics->Position = new System.Numerics.Vector3(-125.826f, 238.337f, -1170.940f);
 				    	pkinematics->Rotation = new System.Numerics.Quaternion(0.0f, 0.701707f, 0.0f, 0.701707f);
 						WriteProtected<byte>(ATSHOT1, _gb24);
+						break;
+					
+					case "bo4162":
+						WriteProtected<byte>(AT0RING, _gb35);
 						break;
 				}
 			}
