@@ -271,7 +271,7 @@ Code "Sonic Animation Speed Edits"
 {
     if (!IsConfigInitialised)
     {
-		var mod = HMM.GetModByID("566416");
+		var mod = HMM.GetModByID("5664X0");
 
 		if (mod == null)
 			return;
