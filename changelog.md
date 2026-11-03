@@ -4,6 +4,15 @@
 
 
 
+#### **β.03**
+
+#### **- 2026.11.03**
+
+* Fixed an error that occurs when the "WingLaser" option set to "Off" plays the wrong scene.
+* BossCommon.pac updated to reflect this change.
+
+
+
 #### **β.02**
 
 #### **- 2026.10.28**

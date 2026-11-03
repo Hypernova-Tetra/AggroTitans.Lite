@@ -251,6 +251,7 @@ Code "Supreme Dynamics" by "Hypernova" rewritten by "Gordon Ramsay"
 						break;
 						
 					case "zev_rfl_bitlaser03":
+					case "zev_rfl_spB3":
 						WriteProtected<byte>(ATSHOTB, _gb27);
 						break;
 							
@@ -366,7 +367,7 @@ Code "Counter_Blow" by "Holoska"
     static long AdRightHand = 0;	
 	static string[] rng_counter = new[]
 	{ /* sup */ 
-	"attack_counter_righthand_01", "attack_counter_righthand_02", "attack_counter_righthand_03", "attack_counter_head_01     ",
+	"attack_counter_righthand_01", "attack_counter_righthand_02", "attack_counter_righthand_03", "attack_counter_headattack01",
 	};	
 	
 	static long AdAtkCnSp02 = 0;
@@ -400,7 +401,7 @@ Patch "Supreme Wing Laser"
     static bool IsConfigInitialised = false;
 	static int RifleWing = 0;
 	static long ATSHOT4 = 0;
-	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("zev_rfl_sp00   ");
+	static byte[] _gb0 = System.Text.Encoding.UTF8.GetBytes("zev_rfl_spB3   ");
 	static byte[] _gb1 = System.Text.Encoding.UTF8.GetBytes("zev_rfl_wng1   ");
 	static byte[] _gb2 = System.Text.Encoding.UTF8.GetBytes("zev_rfl_wng2   ");
 //
