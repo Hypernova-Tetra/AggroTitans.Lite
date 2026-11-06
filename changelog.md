@@ -4,6 +4,14 @@
 
 
 
+#### **β.04**
+
+#### **- 2026.11.06**
+
+* Fixed several issues across Titan events that previously had a variety of issues occur. 
+
+
+
 #### **β.03**
 
 #### **- 2026.11.03**
