@@ -1,6 +1,6 @@
 # **Aggravated Bosses (Lite Edition)**
 
-* Current 7z Compressed Mod File Size: "1.62GB"
+* Current 7z Compressed Mod File Size: "1.6GB"
 
 #### 
 
