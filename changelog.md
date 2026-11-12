@@ -4,6 +4,12 @@
 
 #### 
 
+##### **Patch - 2026.11.12**
+
+* Added a "Mod-Check" for QOL-Addons to disable Riflebeast's "Tackle Attack" when activated.
+
+
+
 ##### **1.10 (2026.11.08)**
 
 **Formerly known as "Aggro Titans"**
