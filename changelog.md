@@ -4,7 +4,15 @@
 
 #### 
 
-##### **Patch - 2026.11.12**
+##### **Patch** 
+
+##### **2026.11.14**
+
+* Fixed a small visual issue with edited variants of Riflebeast's Grand Slam.
+
+
+
+##### **2026.11.12**
 
 * Added a "Mod-Check" for QOL-Addons to disable Riflebeast's "Tackle Attack" when activated.
 
